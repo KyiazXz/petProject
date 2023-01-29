@@ -14,12 +14,16 @@ const fetchData = fetch (api).then ((res)=>res.json()).then((data)=>setData(data
   return (
     <>
     {data.map((item)=>{
-        return (<> 
-        <h2>{item.firstName}</h2>
-        <img src={item.image} alt={item.lastName}/> 
-        <h4>{item.phone}</h4>
-        <p>{item.bank.cardNumber}</p>
-        </>)
+    // yoiu can simplify your code as destructring
+    const {firsName,image,lastName,phone,bank.cardNumber} = item;
+        return (
+          <> 
+        <h2>{firstName}</h2>
+        <img src={image} alt={lastName}/> 
+        <h4>{phone}</h4>
+        <p>{bank.cardNumber}</p>
+         </>
+        )
     })}
     </>
   )
